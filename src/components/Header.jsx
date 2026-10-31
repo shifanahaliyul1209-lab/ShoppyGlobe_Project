@@ -1,31 +1,25 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../redux/cartSlice";
 
-// Custom hook: gets the product list from the API
-const useFetchProducts = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// Header: navigation menu and cart icon with item count
+const Header = () => {
+  // Read the total number of cart items from the Redux store
+  const cartCount = useSelector(selectCartCount);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("https://dummyjson.com/products");
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
-        const data = await response.json();
-        setProducts(data.products);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  return { products, loading, error };
+  return (
+    <header className="header">
+      <Link to="/" className="logo">
+        ShoppyGlobe
+      </Link>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/cart" className="cart-link">
+          🛒 Cart <span className="cart-count">{cartCount}</span>
+        </Link>
+      </nav>
+    </header>
+  );
 };
 
-export default useFetchProducts;
+export default Header;
