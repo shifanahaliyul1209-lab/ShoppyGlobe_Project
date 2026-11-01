@@ -17,3 +17,17 @@ An Amazon-inspired e-commerce application built with React and Vite.
 
 ## Tech Stack
 React, Vite, Redux Toolkit, React Router (`createBrowserRouter`), PropTypes, CSS
+
+## Folder Structure
+- `src/components`: Header, ProductList, ProductItem, ProductDetail, Cart, CartItem, Checkout, NotFound, Layout
+- `src/redux`: cartSlice, searchSlice, store
+- `src/hooks`: useFetchProducts
+
+## How to Run
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm run dev`
+4. Open `http://localhost:5173`
+
+## Note
+Product data and prices come from https://dummyjson.com/products (prices are in USD).
