@@ -8,6 +8,7 @@ const useFetchProducts = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      // try/catch handles failed requests
       try {
         const response = await fetch("https://dummyjson.com/products");
         if (!response.ok) {
