@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
+// Main component: sets up the app routes
 function App() {
   return <RouterProvider router={router} />;
 }
